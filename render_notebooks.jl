@@ -15,6 +15,6 @@ allfiles = filter(isfile, readdir());
 jlfiles = filter(x -> occursin(".jl",x), allfiles);
 notebookfiles = filter(jlfiles) do f
     readline(f) == "### A Pluto.jl notebook ###"
-end
+end;
 
-Export.export_paths(notebookfiles; export_dir="__notebook_exports");
+Export.export_paths(notebookfiles; export_dir="__notebook_exports", copy_to_temp_before_running=false);
