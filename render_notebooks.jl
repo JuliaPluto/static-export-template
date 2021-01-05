@@ -5,9 +5,16 @@ env = mktempdir();
 Pkg.activate(env);
 Pkg.add([
     Pkg.PackageSpec(url="https://github.com/fonsp/PlutoUtils.jl", rev="static-export"),
-    Pkg.PackageSpec(url="https://github.com/fonsp/Pluto.jl", rev="d8caee9"),
+    Pkg.PackageSpec(url="https://github.com/fonsp/Pluto.jl", rev="b4f583f"),
 ]);
 
 import PlutoUtils.Export;
 
-Export.export_paths(["notebook.jl"]; export_dir="__notebook_exports");
+
+allfiles = filter(isfile, readdir());
+jlfiles = filter(x -> occursin(".jl",x), allfiles);
+notebookfiles = filter(jlfiles) do f
+    readline(f) == "### A Pluto.jl notebook ###"
+end
+
+Export.export_paths(notebookfiles; export_dir="__notebook_exports");
