@@ -1,0 +1,1 @@
+# pluto-static-render-test
