@@ -1,4 +1,8 @@
-mkdir("__notebook_exports");
+@show ENV
+
+output_dir = get(ENV, "notebook_export_dir", "__notebook_exports")
+
+isdir(output_dir) || mkdir(output_dir)
 
 using Pkg;
 env = mktempdir();
@@ -17,4 +21,4 @@ notebookfiles = filter(jlfiles) do f
     readline(f) == "### A Pluto.jl notebook ###"
 end;
 
-Export.export_paths(notebookfiles; export_dir="__notebook_exports", copy_to_temp_before_running=false);
+Export.export_paths(notebookfiles; export_dir=output_dir, copy_to_temp_before_running=false);
