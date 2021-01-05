@@ -1,6 +1,5 @@
-@show ENV
-
-output_dir = get(ENV, "notebook_export_dir", "__notebook_exports")
+output_dir = "__notebook_exports"
+output_dir = "."
 
 isdir(output_dir) || mkdir(output_dir)
 
