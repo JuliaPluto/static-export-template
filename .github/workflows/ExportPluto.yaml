@@ -15,21 +15,7 @@ jobs:
               with:
                   version: 1.5
             - name: Run Pluto notebooks
-              run: julia -e '
-                  mkdir("__notebook_exports");
-
-                  using Pkg;
-                  env = mktempdir();
-                  Pkg.activate(env);
-                  Pkg.add([
-                  Pkg.PackageSpec(url="https://github.com/fonsp/PlutoUtils.jl", rev="static-export"),
-                  Pkg.PackageSpec(url="https://github.com/fonsp/Pluto.jl", rev="master"),
-                  ]);
-
-                  import PlutoUtils.Export;
-
-                  Export.export_paths(["notebook.jl"]; export_dir="__notebook_exports");
-                  '
+              run: julia render_notebooks.jl
             - name: Deploy to gh-pages
               uses: JamesIves/github-pages-deploy-action@releases/v3
               with:
