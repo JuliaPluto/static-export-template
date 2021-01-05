@@ -26,9 +26,9 @@ jobs:
                   Pkg.PackageSpec(url="https://github.com/fonsp/Pluto.jl", rev="master"),
                   ]);
 
-                  import PlutoUtils.Export
+                  import PlutoUtils.Export;
 
-                  Export.export_paths(["notebook.jl"]; export_dir="__notebook_exports")
+                  Export.export_paths(["notebook.jl"]; export_dir="__notebook_exports");
                   '
             - name: Deploy to gh-pages
               uses: JamesIves/github-pages-deploy-action@releases/v3
