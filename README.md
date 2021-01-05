@@ -16,6 +16,8 @@ Don't use the code in this repository for your own project just yet.
 
 Create a GitHub account, and click on ["Use this template"](https://github.com/fonsp/PlutoBlogTemplate/generate) (TODO fonsi update link). Choose a new name!
 
+<img width="400" alt="Schermafbeelding 2021-01-06 om 00 40 34" src="https://user-images.githubusercontent.com/6933510/103711531-f7cdc800-4fb7-11eb-98b7-6ebd070a337b.png">
+
 ### 👉 Step 2
 
 Click on **Add files**, and then **Upload files**. In the next page, upload your `.jl` notebook files.
@@ -24,11 +26,15 @@ Click on **Add files**, and then **Upload files**. In the next page, upload your
 
 Your notebooks will run on github every time that you update the files in this repository. To check the progress, click on ["Actions"](./actions), you will find the _workflow_ for the last commit.
 
+<img width="400" alt="Schermafbeelding 2021-01-06 om 00 45 25" src="https://user-images.githubusercontent.com/6933510/103711844-978b5600-4fb8-11eb-8b1b-1e5bdacc1c85.png">
+
 Wait for the Action to finish running your notebook.
 
 ### 👉 Step 3
 
 Go to the ["Settings"](./settings) page of your repository, and scroll down to _"GitHub Pages"_. For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown!
+
+<img width="400" alt="Schermafbeelding 2021-01-06 om 00 43 00" src="https://user-images.githubusercontent.com/6933510/103711695-43807180-4fb8-11eb-9ba8-a96a70612177.png">
 
 ## Update notebook files
 
@@ -70,12 +76,12 @@ begin
 end
 ```
 
-Important to note:
+**Important to note:**
 
--   Place the Pkg commands and the imports in the same cell
+-   Place the Pkg commands and the imports in the same cell.
 -   You can use the same setup when running your notebook locally. Julia will re-use existing package installations, so this will only download and install packages the first time.
 
-In the future, Pluto will automate this process for you!
+_In the future, Pluto will automate this process for you!_ 🙈
 
 ### Homepage
 
