@@ -20,7 +20,7 @@ jobs:
                   Pkg.activate(env);
                   Pkg.add([
                   Pkg.PackageSpec(url="https://github.com/fonsp/PlutoUtils.jl", rev="static-export"),
-                  Pkg.PackageSpec(url="https://github.com/fonsp/Pluto.jl", rev="701513d"),
+                  Pkg.PackageSpec(url="https://github.com/fonsp/Pluto.jl", rev="3ba61b3"),
                   ]);
 
                   import PlutoUtils;
