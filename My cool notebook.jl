@@ -26,7 +26,7 @@ This notebook will define a Julia implementation of the puzzle. It's up to you t
 # ╔═╡ 95fbd0d2-a2b9-11ea-0682-fdf783251797
 md"""
 ## Setting up the game pieces
-
+ 
 What does a Julia implementation look like? We're not really interested in writing code that will manipulate physical disks. Our final goal is a function that will give us a _recipe_ to solve the tower of hanoi, which is just a list of moves to make. Because of that, we can use a lot of abstraction in our implementation, and keep the data structures as simple as possible.
 
 To start, we have to define some representation of the disks and the stacks. The disks have one important property, which is that they are ordered. We can use integers to represent them.
