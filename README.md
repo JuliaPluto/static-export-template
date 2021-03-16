@@ -76,6 +76,8 @@ begin
 end
 ```
 
+**You can use [this helper tool](https://fonsp.com/article-test-3/pkghelper.html) to generate these commands!**
+
 **Important to note:**
 
 -   Place the Pkg commands and the imports in the same cell.
