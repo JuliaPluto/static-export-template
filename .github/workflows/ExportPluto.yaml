@@ -20,7 +20,7 @@ jobs:
                   Pkg.activate(env);
                   Pkg.add([
                       Pkg.PackageSpec(url="https://github.com/JuliaPluto/PlutoSliderServer.jl", rev="d6d65b8"),
-                      Pkg.PackageSpec(name="Pluto", version="=0.14.1"),
+                      Pkg.PackageSpec(name="Pluto", version=v"0.14.1"),
                   ]);
 
                   import PlutoSliderServer;
