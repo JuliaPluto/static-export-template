@@ -16,15 +16,12 @@ jobs:
                   version: 1.6
             - name: Run Pluto notebooks
               run: julia -e 'using Pkg;
-                  env = mktempdir();
-                  Pkg.activate(env);
+                  Pkg.activate(mktempdir());
                   Pkg.add([
-                      Pkg.PackageSpec(url="https://github.com/JuliaPluto/PlutoSliderServer.jl", rev="d6d65b8"),
-                      Pkg.PackageSpec(name="Pluto", version=v"0.14.1"),
+                      Pkg.PackageSpec(url="https://github.com/JuliaPluto/PlutoSliderServer.jl", rev="00d18e8"),
                   ]);
 
                   import PlutoSliderServer;
-
                   PlutoSliderServer.github_action();'
             - name: Deploy to gh-pages
               uses: JamesIves/github-pages-deploy-action@releases/v3
