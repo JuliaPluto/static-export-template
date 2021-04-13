@@ -56,9 +56,9 @@ From this repository, download [ExportPluto.yaml](./.github/workflows/ExportPlut
 
 Save the file in your own repository, in the same location: make a folder `.github` in the main directory, within that a folder `workflows`, and add the file there, with the name `ExportPluto.yaml`. Commit the new file to your repository. 
 
-*Note: The yaml file states that github should use the github notebooks in the `main` branch of your repository. If you changed the name of your default branch, or you want to use a different branch, change "main" in [line 5](https://github.com/lukavdplas/pluto-static-render-test/blob/36a5f0fcd134f4b68342fc66907ee3b7c90f15bb/.github/workflows/ExportPluto.yaml#L5) in the yaml file to the name of your favourite branch.*
+*Note: The yaml file states that github should use the github notebooks in the `main` branch of your repository. If you changed the name of your default branch, or you want to use a different branch, change `main` in [line 5](https://github.com/lukavdplas/pluto-static-render-test/blob/36a5f0fcd134f4b68342fc66907ee3b7c90f15bb/.github/workflows/ExportPluto.yaml#L5) in the yaml file to the name of your favourite branch.*
 
-Now, you can look at the "workflows" tab in your repository. Your notebooks will run on github every time that you update the files in this repository. To check the progress, click on ["Actions"](./actions), you will find the _workflow_ for the last commit.
+Your notebooks will run on github every time that you update the files in this repository. To check the progress, click on ["Actions"](./actions), you will find the _workflow_ for the last commit.
 
 <img width="400" alt="Schermafbeelding 2021-01-06 om 00 45 25" src="https://user-images.githubusercontent.com/6933510/103711844-978b5600-4fb8-11eb-8b1b-1e5bdacc1c85.png">
 
