@@ -1,9 +1,9 @@
-# pluto-static-render-test
+# static-export-template
 
 This is a demo repository containing two Pluto notebooks that are **automatically converted to HTML** by a github action, and published to github pages! 🌝
 
 See the github pages deployment of this repository:
-http://fonsp.com/pluto-static-render-test
+https://juliapluto.github.io/static-export-template/
 
 More info here:
 https://www.notion.so/Interactive-web-articles-bf3af6de77854660807e674148c27b1f#1a997e538e0d48e0bf54d2d5f29dfc2b
@@ -14,7 +14,7 @@ Don't use the code in this repository for your own project just yet.
 
 ### 👉 Step 1
 
-Create a GitHub account, and click on ["Use this template"](https://github.com/fonsp/PlutoBlogTemplate/generate) (TODO fonsi update link). Choose a new name!
+Create a GitHub account, and click on ["Use this template"](https://github.com/JuliaPluto/static-export-template/generate). Choose a new name!
 
 <img width="400" alt="Schermafbeelding 2021-01-06 om 00 40 34" src="https://user-images.githubusercontent.com/6933510/103711531-f7cdc800-4fb7-11eb-98b7-6ebd070a337b.png">
 
