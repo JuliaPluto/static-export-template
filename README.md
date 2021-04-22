@@ -10,7 +10,7 @@ https://www.notion.so/Interactive-web-articles-bf3af6de77854660807e674148c27b1f#
 
 Don't use the code in this repository for your own project just yet.
 
-# How to use the template (WIP, do not use yet)
+# How to use the template
 
 ### 👉 Step 1
 
