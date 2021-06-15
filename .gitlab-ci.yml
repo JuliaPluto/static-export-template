@@ -1,0 +1,32 @@
+image: julia:1.6
+
+# Cache modules in between jobs
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - pluto_state_cache/
+
+before_script:
+- julia -e 'using Pkg;
+            Pkg.activate(mktempdir());
+            Pkg.add([
+              Pkg.PackageSpec(name="PlutoSliderServer", version="0.2"),
+            ]);
+
+            import PlutoSliderServer;
+
+            PlutoSliderServer.github_action(;
+              Export_cache_dir="pluto_state_cache",
+            );'
+
+pages:
+  stage: deploy
+  script:
+  - mkdir .public
+  - cp -r * .public
+  - mv .public public
+  artifacts:
+    paths:
+    - public
+  only:
+  - main
