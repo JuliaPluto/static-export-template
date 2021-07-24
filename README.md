@@ -75,7 +75,9 @@ Don't worry if it doesn't work immediately! It can take a while for the web page
 
 ### Julia Packages
 
-When your notebook runs on github, no packages are installed. To solve this, you need to **declare a package environment** inside the notebook, using `Pkg`.
+The future is now! With Pluto's new in-built package manager, required packages are stored in the notebook itself! 
+
+However, if you choose to, you can **declare a package environment** inside the notebook, using `Pkg`.
 
 For example, instead of:
 
@@ -113,8 +115,6 @@ end
 
 -   Place the Pkg commands and the imports in the same cell.
 -   You can use the same setup when running your notebook locally. Julia will re-use existing package installations, so this will only download and install packages the first time.
-
-_In the future, Pluto will automate this process for you!_ 🙈
 
 ### Homepage
 
