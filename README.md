@@ -75,7 +75,7 @@ Don't worry if it doesn't work immediately! It can take a while for the web page
 
 ### Julia Packages
 
-The future is now! With Pluto's new in-built package manager, required packages are stored in the notebook itself! 
+The future is now! If you use Pluto >v1.5.0, it's new in-built package manager stores required packages in the notebook itself! 
 
 However, if you choose to, you can **declare a package environment** inside the notebook, using `Pkg`.
 
