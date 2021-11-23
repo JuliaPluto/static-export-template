@@ -75,46 +75,7 @@ Don't worry if it doesn't work immediately! It can take a while for the web page
 
 ### Julia Packages
 
-The future is now! If you use Pluto 0.15 (or above), its new in-built package manager stores required packages in the notebook itself! 
-
-However, if you choose to, you can **declare a package environment** inside the notebook, using `Pkg`.
-
-For example, instead of:
-
-```julia
-using Plots
-```
-
-```julia
-using PlutoUI
-```
-
-You should write:
-
-```julia
-begin
-    import Pkg
-    # activate a clean environment
-    Pkg.activate(mktempdir())
-
-    Pkg.add([
-        Pkg.PackageSpec(name="Plots"),
-        Pkg.PackageSpec(name="PlutoUI"),
-        # ... keep adding your packages
-    ])
-
-    using Plots
-    using PlutoUI
-    # ... place all usings and imports into this one cell
-end
-```
-
-**You can use [this helper tool](https://fonsp.com/article-test-3/pkghelper.html) to generate these commands!**
-
-**Important to note:**
-
--   Place the Pkg commands and the imports in the same cell.
--   You can use the same setup when running your notebook locally. Julia will re-use existing package installations, so this will only download and install packages the first time.
+Because Pluto has a [built-in package manager](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%8E%81-Package-management), packages will automatically work on the website!
 
 ### Homepage
 
