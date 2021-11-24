@@ -79,13 +79,14 @@ If you go to the (GitHub Pages) URL of repository, you will see a small index of
 -   Create your own `index.html` or `index.md` file, it will be used as the homepage.
 -   Rename one of your notebooks to `index.jl`, and it will be the default notebook!
 
-# LICENSE
+# License
 
 This *template* repository is [Unlicensed](https://unlicense.org), which means that you can do anything you want with it! When you use this template, you are also free to remove this license message.
 
 <details>
 <summary>View license text</summary>
 (This license applies to the template https://github.com/JuliaPluto/static-export-template, not necessarily to the user of the template.)
+
 ```
 This is free and unencumbered software released into the public domain.
 
