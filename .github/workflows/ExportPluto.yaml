@@ -35,7 +35,7 @@ jobs:
                 julia -e 'using Pkg
                   Pkg.activate(mktempdir())
                   Pkg.add([
-                    Pkg.PackageSpec(name="PlutoSliderServer", version="0.3"),
+                    Pkg.PackageSpec(name="PlutoSliderServer", version="0.3.2-0.3"),
                   ])
 
                   import PlutoSliderServer
@@ -44,9 +44,6 @@ jobs:
                     Export_cache_dir="pluto_state_cache",
                     Export_baked_notebookfile=false,
                     Export_baked_state=false,
-                    # necessary in PlutoSliderServer <= 0.3.1
-                    SliderServer_serve_static_export_folder=false,
-                    
                     # more parameters can go here
                   )'
 
