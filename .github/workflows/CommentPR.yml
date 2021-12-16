@@ -1,7 +1,7 @@
 name: Add artifact links to pull request and related issues
 on:
     workflow_run:
-        workflows: ["PR artifact"]
+        workflows: ["Export Pluto notebooks"]
         types: [completed]
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
@@ -19,3 +19,4 @@ jobs:
               suffix: Artifacts will only be retained for 90 days.
               format: name
               addTo: pullandissues
+              errorNoArtifacts: false
