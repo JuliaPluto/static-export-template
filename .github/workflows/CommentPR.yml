@@ -1,0 +1,20 @@
+name: Add artifact links to pull request and related issues
+on:
+    workflow_run:
+        workflows: ["PR artifact"]
+        types: [completed]
+
+jobs:
+    artifacts-url-comments:
+        name: Add artifact links to PR
+        runs-on: ubuntu-latest
+        steps:
+            - name: Add artifact links to pull request and related issues step
+              uses: tonyhallett/artifacts-url-comments@v1.1.0
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  prefix: Here are the Nnotebooks 
+                  suffix: Have a nice day.
+                  format: name
+                  addTo: pullandissues
