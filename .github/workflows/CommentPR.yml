@@ -10,6 +10,7 @@ jobs:
     artifacts-url-comments:
       name: add artifact links to pull request and related issues job
       runs-on: ubuntu-latest
+      continue-on-error: true
       steps:
         - uses: tonyhallett/artifacts-url-comments@v1.1.0
           env:
@@ -18,5 +19,4 @@ jobs:
               prefix: Here are the build results
               suffix: Artifacts will only be retained for 90 days.
               format: name
-              addTo: pullandissues
-              errorNoArtifacts: false
+              addTo: pull
