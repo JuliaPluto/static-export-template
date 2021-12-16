@@ -19,3 +19,4 @@ jobs:
               suffix: Artifacts will only be retained for 90 days.
               format: name
               addTo: pullandissues
+              errorNoArtifacts: fails
