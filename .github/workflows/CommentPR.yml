@@ -3,18 +3,19 @@ on:
     workflow_run:
         workflows: ["PR artifact"]
         types: [completed]
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
 
 jobs:
     artifacts-url-comments:
-        name: Add artifact links to PR
-        runs-on: ubuntu-latest
-        steps:
-            - name: Add artifact links to pull request and related issues step
-              uses: tonyhallett/artifacts-url-comments@v1.1.0
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                  prefix: Here are the Notebooks
-                  suffix: Have a nice day.
-                  format: name
-                  addTo: pullandissues
+      name: add artifact links to pull request and related issues job
+      runs-on: ubuntu-latest
+      steps:
+        - uses: tonyhallett/artifacts-url-comments@v1.1.0
+          env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+              prefix: Here are the build results
+              suffix: Artifacts will only be retained for 90 days.
+              format: name
+              addTo: pullandissues
