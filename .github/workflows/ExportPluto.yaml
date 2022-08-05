@@ -1,64 +1,87 @@
 name: Export Pluto notebooks
 on:
-    push:
-        branches:
-            - main
-            - master
-    workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 # When two jobs run in parallel, cancel the older ones, to make sure that the website is generated from the most recent commit.
 concurrency:
-    group: pluto-export
-    cancel-in-progress: true
+  group: pluto-export-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  JULIA_VERSION: '1.7'
+  JULIA_NUM_THREADS: '2'
 
 jobs:
-    build-and-deploy:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout this repository
-              uses: actions/checkout@v2
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v2
 
-            - name: Install Julia
-              uses: julia-actions/setup-julia@v1
-              with:
-                  version: 1.7
+      - name: Install Julia
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: ${{ env.JULIA_VERSION }}
 
-            - name: Cache Julia artifacts & such
-              uses: julia-actions/cache@v1
-              with:
-                cache-registries: "true"
+      - name: Cache Julia artifacts & such
+        uses: julia-actions/cache@v1
+        with:
+          cache-registries: 'true'
 
-            # We set up a folder that Pluto can use to cache exported notebooks. If the notebook file did not change, then Pluto can take the exported file from cache instead of running the notebook.
-            - name: Set up notebook state cache
-              uses: actions/cache@v2
-              with:
-                  path: pluto_state_cache
-                  key: ${{ runner.os }}-pluto_state_cache-v2-${{ hashFiles('**/Project.toml', '**/Manifest.toml', '.github/workflows/*' ) }}-${{ hashFiles('**/*jl') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pluto_state_cache-v2-${{ hashFiles('**/Project.toml', '**/Manifest.toml', '.github/workflows/*' ) }}
+      # We set up a folder that Pluto can use to cache exported notebooks. If the notebook file did not change, then Pluto can take the exported file from cache instead of running the notebook.
+      - name: Set up notebook state cache
+        uses: actions/cache@v2
+        with:
+          path: pluto_state_cache
+          key: ${{ runner.os }}-pluto_state_cache-v2-${{ hashFiles('**/Project.toml', '**/Manifest.toml', '.github/workflows/*' ) }}-${{ hashFiles('**/*jl') }}
+          restore-keys: |
+            ${{ runner.os }}-pluto_state_cache-v2-${{ hashFiles('**/Project.toml', '**/Manifest.toml', '.github/workflows/*' ) }}
 
+      - name: Run & export Pluto notebooks
+        run: |
+          julia -e 'using Pkg
+            Pkg.activate(mktempdir())
+            Pkg.add([
+              Pkg.PackageSpec(name="PlutoSliderServer", version="0.3.2-0.3"),
+            ])
 
-            - name: Run & export Pluto notebooks
-              run: |
-                julia -e 'using Pkg
-                  Pkg.activate(mktempdir())
-                  Pkg.add([
-                    Pkg.PackageSpec(name="PlutoSliderServer", version="0.3.2-0.3"),
-                  ])
+            import PlutoSliderServer
 
-                  import PlutoSliderServer
+            PlutoSliderServer.github_action("notebooks";
+              Export_cache_dir="pluto_state_cache",
+              Export_baked_notebookfile=false,
+              Export_baked_state=false,
+              # more parameters can go here
+            )'
 
-                  PlutoSliderServer.github_action(".";
-                    Export_cache_dir="pluto_state_cache",
-                    Export_baked_notebookfile=false,
-                    Export_baked_state=false,
-                    # more parameters can go here
-                  )'
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v1
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./notebooks
 
-            - name: Deploy to gh-pages
-              uses: JamesIves/github-pages-deploy-action@releases/v3
-              with:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  BRANCH: gh-pages
-                  FOLDER: .
+  # Deployment job
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/master'
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
