@@ -4,6 +4,7 @@ on:
         branches:
             - main
             - master
+    pull_request:
     workflow_dispatch:
 
 # When two jobs run in parallel, cancel the older ones, to make sure that the website is generated from the most recent commit.
@@ -55,9 +56,16 @@ jobs:
                     # more parameters can go here
                   )'
 
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v2
+              with:
+                  name: pluto-notebooks
+                  path: .
+
 
             - name: Deploy to gh-pages
               uses: JamesIves/github-pages-deploy-action@releases/v3
+              if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   BRANCH: gh-pages

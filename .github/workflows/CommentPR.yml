@@ -1,0 +1,22 @@
+name: Add artifact links to pull request and related issues
+on:
+    workflow_run:
+        workflows: ["Export Pluto notebooks"]
+        types: [completed]
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+jobs:
+    artifacts-url-comments:
+      name: add artifact links to pull request and related issues job
+      runs-on: ubuntu-latest
+      continue-on-error: true
+      steps:
+        - uses: tonyhallett/artifacts-url-comments@v1.1.0
+          env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+              prefix: Here are the build results
+              suffix: Artifacts will only be retained for 90 days.
+              format: name
+              addTo: pull
