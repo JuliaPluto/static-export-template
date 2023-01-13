@@ -9,7 +9,7 @@ https://juliapluto.github.io/static-export-template/
 
 ### 👉 Step 1
 
-Create a GitHub account, and click on ["Use this template"](https://github.com/JuliaPluto/static-export-template/generate). Choose a new name!
+Create a GitHub account, and click on ["Use this template"](https://github.com/JuliaPluto/static-export-template/generate). Choose a new name! Make sure to also include the `gh-pages` branch.
 
 <img width="400" alt="Schermafbeelding 2021-01-06 om 00 40 34" src="https://user-images.githubusercontent.com/6933510/103711531-f7cdc800-4fb7-11eb-98b7-6ebd070a337b.png">
 
@@ -30,6 +30,8 @@ Wait for the Action to finish running your notebook.
 Go to the ["Settings"](./settings) page of your repository, and scroll down to _"GitHub Pages"_. For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
 
 <img width="400" alt="Schermafbeelding 2021-01-06 om 00 43 00" src="https://user-images.githubusercontent.com/6933510/103711695-43807180-4fb8-11eb-9ba8-a96a70612177.png">
+
+If the workflow (Github action) fails with a permission error (e.g. `Permission to [repo].git denied to github-actions[bot]`), you may need to adjust the permissions of the `GITHUB_TOKEN` used. This can be done in the repository settings ("Actions" > "General" > "Workflow permissions" > "Read and write permissions").
 
 Don't worry if it doesn't work immediately! It can take a while for the web page to be ready, even after your settings page says it's done. (Github pages says 20 minutes, but it can take even longer.)
 
