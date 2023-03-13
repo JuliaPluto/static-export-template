@@ -29,7 +29,7 @@ Wait for the Action to finish running your notebook.
 
 ### 👉 Step 3
 
-Go to the ["Settings" page](./settings) of your repository again, and go to [the "Pages" section](./settings/pages). For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
+Go to the ["Settings" page](./settings) of your repository, and go to [the "Pages" section](./settings/pages). For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
 
 <img width="400" alt="screenshot of the Pages settings, displaying the URL after the web page is ready" src="https://user-images.githubusercontent.com/6933510/103711695-43807180-4fb8-11eb-9ba8-a96a70612177.png">
 
