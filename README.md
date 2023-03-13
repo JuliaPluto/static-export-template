@@ -9,29 +9,35 @@ https://juliapluto.github.io/static-export-template/
 
 ### 👉 Step 1
 
-Create a GitHub account, and click on ["Use this template"](https://github.com/JuliaPluto/static-export-template/generate). Choose a new name! Make sure to also include the `gh-pages` branch.
+Create a GitHub account, and click on ["Use this template"](https://github.com/JuliaPluto/static-export-template/generate). Choose a new name!
 
-<img width="400" alt="Schermafbeelding 2021-01-06 om 00 40 34" src="https://user-images.githubusercontent.com/6933510/103711531-f7cdc800-4fb7-11eb-98b7-6ebd070a337b.png">
+<img width="400" alt="screenshot of clicking the Use-this-template button" src="https://user-images.githubusercontent.com/6933510/103711531-f7cdc800-4fb7-11eb-98b7-6ebd070a337b.png">
+
+You now have your own repository (take a look at the URL), containing a copy of the template files, including the file you are currently reading (`README.md`)!
 
 ### 👉 Step 2
 
-Click on **Add files**, and then **Upload files**. In the next page, upload your `.jl` notebook files.
+Go to the ["Settings" page](./settings) of your repository, and go to [the "Actions → General" section](./settings/actions). For the setting _**Workflow permissions**_, choose the option **Read and write permissions**, and click **Save**. (This will allow our Pluto *action* to *write* the exported HTML files to your website directory, more on this later.)
 
-<img width="400" alt="Schermafbeelding 2021-01-06 om 00 15 06" src="https://user-images.githubusercontent.com/6933510/103710071-67da4f00-4fb4-11eb-9943-b66f26119d36.png">
+<img width="400" alt="screenshot of clicking the Workflow permissions setting in the Actions settings page" src="https://user-images.githubusercontent.com/6933510/224754996-bf5745e6-c19f-40c2-85f5-0016dd8df2d6.png">
 
-Your notebooks will run on github every time that you update the files in this repository. To check the progress, click on ["Actions"](./actions), you will find the _workflow_ for the last commit.
+### 👉 Step 2
 
-<img width="400" alt="Schermafbeelding 2021-01-06 om 00 45 25" src="https://user-images.githubusercontent.com/6933510/103711844-978b5600-4fb8-11eb-8b1b-1e5bdacc1c85.png">
+Go back to the **"Code" page** of your repository (where you are reading this text). Click on **Add files** (or **+**), and then **Upload files**. In the next page, upload your `.jl` notebook files.
+
+<img width="400" alt="screenshot of clicking the Upload-files button" src="https://user-images.githubusercontent.com/6933510/103710071-67da4f00-4fb4-11eb-9943-b66f26119d36.png">
+
+Your notebooks will run on github every time that you update the files in this repository. To check the progress, go to the ["Actions" page](./actions) of your repository, you will find the _workflow_ for the last commit.
+
+<img width="400" alt="screenshot of the actions page, showing a currently running workflow" src="https://user-images.githubusercontent.com/6933510/103711844-978b5600-4fb8-11eb-8b1b-1e5bdacc1c85.png">
 
 Wait for the Action to finish running your notebook.
 
 ### 👉 Step 3
 
-Go to the ["Settings"](./settings) page of your repository, and scroll down to _"GitHub Pages"_. For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
+Go to the ["Settings" page](./settings) of your repository again, and go to [the "Pages" section](./settings/pages). For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
 
-<img width="400" alt="Schermafbeelding 2021-01-06 om 00 43 00" src="https://user-images.githubusercontent.com/6933510/103711695-43807180-4fb8-11eb-9ba8-a96a70612177.png">
-
-If the workflow (Github action) fails with a permission error (e.g. `Permission to [repo].git denied to github-actions[bot]`), you may need to adjust the permissions of the `GITHUB_TOKEN` used. This can be done in the repository settings ("Actions" > "General" > "Workflow permissions" > "Read and write permissions").
+<img width="400" alt="screenshot of the Pages settings, displaying the URL after the web page is ready" src="https://user-images.githubusercontent.com/6933510/103711695-43807180-4fb8-11eb-9ba8-a96a70612177.png">
 
 Don't worry if it doesn't work immediately! It can take a while for the web page to be ready, even after your settings page says it's done. (Github pages says 20 minutes, but it can take even longer.)
 
@@ -45,10 +51,6 @@ If you already have a github repository with some pluto notebooks in it, you may
 
 ### 👉 Step 1
 
-Make sure that all your Pluto notebooks can be run from a fresh Julia environment. See the tips below about packages.
-
-### 👉 Step 2
-
 From this repository, download [ExportPluto.yaml](./.github/workflows/ExportPluto.yaml). 
 
 Save the file in your own repository, in the same location: make a folder `.github` in the main directory, within that a folder `workflows`, and add the file there, with the name `ExportPluto.yaml`. Commit the new file to your repository. 
@@ -59,9 +61,9 @@ Your notebooks will run on github every time that you update the files in this r
 
 <img width="400" alt="Schermafbeelding 2021-01-06 om 00 45 25" src="https://user-images.githubusercontent.com/6933510/103711844-978b5600-4fb8-11eb-8b1b-1e5bdacc1c85.png">
 
-### 👉 Step 3
+### 👉 Step 2
 
-Go to the ["Settings"](./settings) page of your repository, and in the left pane, choose the category _"Pages"_. For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
+Go to the ["Settings" page](./settings) of your repository, and go to [the "Pages" section](./settings/pages). For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
 
 <img width="400" alt="Schermafbeelding 2021-01-06 om 00 43 00" src="https://user-images.githubusercontent.com/6933510/103711695-43807180-4fb8-11eb-9ba8-a96a70612177.png">
 
@@ -73,6 +75,14 @@ Don't worry if it doesn't work immediately! It can take a while for the web page
 ### Julia Packages
 
 Because Pluto has a [built-in package manager](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%8E%81-Package-management), packages will automatically work on the website!
+
+### Default files
+
+This files `README.md` and `My cool notebook.jl` are example files, and you can safely edit or delete them! After you have set up your repository, you can remove these setup instructions from the `README.md` file, and write a description of your project.
+
+### Not working?
+
+If your website is not automatically updating, then go to the **"Actions"** page of your repository, and take a look at the latest logs. If they show a ❌ symbol, then something went wrong. Click on it, and carefully read the error message. If you get stuck, be sure to ask for help: open an issue at https://github.com/JuliaPluto/static-export-template/issues/new and send us a link to your repository.
 
 ### Homepage
 
