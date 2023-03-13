@@ -17,13 +17,7 @@ You now have your own repository (take a look at the URL), containing a copy of 
 
 ### 👉 Step 2
 
-Go to the ["Settings" page](./settings) of your repository, and go to [the "Actions → General" section](./settings/actions). For the setting _**Workflow permissions**_, choose the option **Read and write permissions**, and click **Save**. (This will allow our Pluto *action* to *write* the exported HTML files to your website directory, more on this later.)
-
-<img width="400" alt="screenshot of clicking the Workflow permissions setting in the Actions settings page" src="https://user-images.githubusercontent.com/6933510/224754996-bf5745e6-c19f-40c2-85f5-0016dd8df2d6.png">
-
-### 👉 Step 2
-
-Go back to the **"Code" page** of your repository (where you are reading this text). Click on **Add files** (or **+**), and then **Upload files**. In the next page, upload your `.jl` notebook files.
+Click on **Add files** (or **+**), and then **Upload files**. In the next page, upload your `.jl` notebook files.
 
 <img width="400" alt="screenshot of clicking the Upload-files button" src="https://user-images.githubusercontent.com/6933510/103710071-67da4f00-4fb4-11eb-9943-b66f26119d36.png">
 
