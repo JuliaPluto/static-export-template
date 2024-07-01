@@ -39,6 +39,8 @@ Don't worry if it doesn't work immediately! It can take a while for the web page
 
 To update an existing notebook file, simply repeat Step 2 above! (You can also use **Add files** `>` **Upload files** to _update_ upload a file that already exists on the repository.)
 
+Are you working on this website and planning to make many changes? Then it might be nice to use [GitHub Desktop](https://github.com/apps/desktop), a program on your computer that lets you synchronise your local files with github.com more easily, without having to upload to the website each time. If you are familiar with using the terminal, then you can also use the `git` command to publish changes.
+
 # Alternative setup: add web pages to an existing repository
 
 If you already have a github repository with some pluto notebooks in it, you may want to add a web view like the one for this repository. In that case, the steps are slightly different. In this case, I assume that you are familiar with adding files to a repository. If not, follow the steps above.
