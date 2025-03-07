@@ -42,6 +42,8 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-pluto_state_cache-v2-${{ hashFiles('**/Project.toml', '**/Manifest.toml', '.github/workflows/*' ) }}
 
+            - name: Ignore notebook state cache in export
+              run: echo 'pluto_state_cache' >> .gitignore
 
             - name: Run & export Pluto notebooks
               run: |
