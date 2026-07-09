@@ -29,9 +29,9 @@ Wait for the Action to finish running your notebook.
 
 ### 👉 Step 3
 
-Go to the ["Settings" page](./settings) of your repository, and go to [the "Pages" section](./settings/pages). For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
+Go to the ["Settings" page](./settings) of your repository, and go to [the "Pages" section](./settings/pages). For the "Source", choose `GitHub Actions`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
 
-<img width="400" alt="screenshot of the Pages settings, displaying the URL after the web page is ready" src="https://user-images.githubusercontent.com/6933510/103711695-43807180-4fb8-11eb-9ba8-a96a70612177.png">
+<img width="400" alt="screenshot of the Pages settings, displaying the URL after the web page is ready" src="https://github.com/user-attachments/assets/e77ee2f4-add0-4a35-9737-8e1b45906c5f">
 
 Don't worry if it doesn't work immediately! It can take a while for the web page to be ready, even after your settings page says it's done. (Github pages says 20 minutes, but it can take even longer.)
 
@@ -59,9 +59,9 @@ Your notebooks will run on github every time that you update the files in this r
 
 ### 👉 Step 2
 
-Go to the ["Settings" page](./settings) of your repository, and go to [the "Pages" section](./settings/pages). For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
+Go to the ["Settings" page](./settings) of your repository, and go to [the "Pages" section](./settings/pages). For the "Source", choose `GitHub Actions`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
 
-<img width="400" alt="Schermafbeelding 2021-01-06 om 00 43 00" src="https://user-images.githubusercontent.com/6933510/103711695-43807180-4fb8-11eb-9ba8-a96a70612177.png">
+<img width="400" alt="screenshot of the actions page, showing a currently running workflow" src="https://user-images.githubusercontent.com/6933510/103711844-978b5600-4fb8-11eb-8b1b-1e5bdacc1c85.png">
 
 Don't worry if it doesn't work immediately! It can take a while for the web page to be ready, even after your settings page says it's done. (Github pages says 20 minutes, but it can take even longer.)
 
